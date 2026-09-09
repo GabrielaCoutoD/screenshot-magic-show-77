@@ -77,16 +77,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "RAIZ — Retiros Corporativos de Bem-Estar" },
+      { title: "RAIZ — Corporate Offsites" },
       {
         name: "description",
         content:
-          "Retiros corporativos de saúde e bem-estar que renovam pessoas, fortalecem conexões e transformam a experiência no trabalho.",
+          "A RAIZ cria corporate offsites de saúde e bem-estar: curadoria de destinos, programação sob medida e acompanhamento de resultados.",
       },
-      { property: "og:title", content: "RAIZ — Retiros Corporativos de Bem-Estar" },
+      { property: "og:title", content: "RAIZ — Corporate Offsites" },
       {
         property: "og:description",
-        content: "Pessoas bem cuidadas. Equipes mais conectadas. Empresas mais saudáveis.",
+        content: "Sua equipe merece uma pausa que transforma.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -102,7 +102,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400&family=Montserrat:wght@300;400;500;600&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
   }),
 

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
+import logoAsset from "@/assets/raiz-logo.jpeg.asset.json";
+
 const links = [
   { label: "Experiência", href: "#experiencia" },
   { label: "Benefícios", href: "#beneficios" },
@@ -29,11 +31,12 @@ export function SiteHeader() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 lg:px-10">
-        <a href="#top" className="group flex flex-col leading-none">
-          <span className="font-display text-2xl tracking-[0.28em] text-primary">RAIZ</span>
-          <span className="mt-1 text-[0.6rem] tracking-[0.18em] uppercase text-muted-foreground">
-            Corporate Offsites
-          </span>
+        <a href="#top" className="group inline-flex">
+          <img
+            src={logoAsset.url}
+            alt="RAIZ Corporate Offsites"
+            className="h-9 w-auto object-contain"
+          />
         </a>
 
         <nav className="hidden items-center gap-9 lg:flex">
