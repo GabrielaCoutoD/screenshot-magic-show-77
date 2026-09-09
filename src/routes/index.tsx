@@ -411,7 +411,7 @@ function Index() {
               href="#contato"
               className="mt-10 inline-flex items-center gap-2 rounded-full bg-background px-9 py-4 text-xs font-medium tracking-[0.14em] uppercase text-primary shadow-lift transition-all hover:bg-secondary"
             >
-              Quero criar meu retiro
+              Quero criar minha experiência
               <ArrowRight className="size-4" />
             </a>
           </div>
@@ -456,7 +456,7 @@ function Index() {
           </div>
           <div className="mt-12 border-t border-sand pt-7">
             <p className="text-xs text-muted-foreground">
-              © 2026 RAIZ – Retiros Corporativos de Bem-Estar. Projeto demonstrativo.
+              © 2026 RAIZ – Corporate Offsites. Projeto demonstrativo.
             </p>
           </div>
         </div>
