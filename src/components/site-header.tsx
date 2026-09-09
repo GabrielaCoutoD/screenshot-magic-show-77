@@ -53,7 +53,7 @@ export function SiteHeader() {
             href="#contato"
             className="hidden rounded-full bg-primary px-6 py-3 text-xs font-medium tracking-[0.12em] uppercase text-primary-foreground shadow-soft transition-all hover:bg-primary-soft sm:inline-flex"
           >
-            Planeje seu retiro
+            Planeje sua experiência
           </a>
           <button
             type="button"
@@ -84,7 +84,7 @@ export function SiteHeader() {
               onClick={() => setOpen(false)}
               className="mt-4 rounded-full bg-primary px-6 py-3.5 text-center text-xs font-medium tracking-[0.12em] uppercase text-primary-foreground"
             >
-              Planeje seu retiro
+              Planeje sua experiência
             </a>
           </nav>
         </div>
