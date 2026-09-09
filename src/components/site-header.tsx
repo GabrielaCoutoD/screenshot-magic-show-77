@@ -32,7 +32,7 @@ export function SiteHeader() {
         <a href="#top" className="group flex flex-col leading-none">
           <span className="font-display text-2xl tracking-[0.28em] text-primary">RAIZ</span>
           <span className="mt-1 text-[0.6rem] tracking-[0.18em] uppercase text-muted-foreground">
-            Retiros Corporativos de Bem-Estar
+            Corporate Offsites
           </span>
         </a>
 
