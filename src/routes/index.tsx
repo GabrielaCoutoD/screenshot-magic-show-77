@@ -19,13 +19,13 @@ import { SiteHeader } from "@/components/site-header";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "RAIZ — Retiros Corporativos de Bem-Estar" },
+      { title: "RAIZ — Corporate Offsites" },
       {
         name: "description",
         content:
-          "A RAIZ cria retiros corporativos de saúde e bem-estar: curadoria de destinos, programação sob medida e acompanhamento de resultados.",
+          "A RAIZ cria corporate offsites de saúde e bem-estar: curadoria de destinos, programação sob medida e acompanhamento de resultados.",
       },
-      { property: "og:title", content: "RAIZ — Retiros Corporativos de Bem-Estar" },
+      { property: "og:title", content: "RAIZ — Corporate Offsites" },
       {
         property: "og:description",
         content: "Sua equipe merece uma pausa que transforma.",
@@ -424,7 +424,7 @@ function Index() {
             <div>
               <span className="font-display text-2xl tracking-[0.28em] text-primary">RAIZ</span>
               <p className="mt-3 text-xs tracking-[0.16em] uppercase text-muted-foreground">
-                Retiros Corporativos de Bem-Estar
+                Corporate Offsites
               </p>
             </div>
             <nav className="flex flex-col gap-3">
