@@ -363,7 +363,7 @@ function Index() {
                   href="#contato"
                   className="mt-10 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-xs font-medium tracking-[0.14em] uppercase text-primary-foreground shadow-soft transition-all hover:bg-primary-soft"
                 >
-                  Planeje seu retiro
+                  Planeje sua experiência
                   <ArrowRight className="size-4" />
                 </a>
               </div>
