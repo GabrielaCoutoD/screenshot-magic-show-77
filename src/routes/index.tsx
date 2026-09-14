@@ -10,9 +10,6 @@ import {
   Users,
 } from "lucide-react";
 
-import heroImage from "@/assets/hero-retreat.jpg";
-import natureImage from "@/assets/nature-calm.jpg";
-import spaceImage from "@/assets/retreat-space.jpg";
 import { LeadForm } from "@/components/lead-form";
 import { SiteHeader } from "@/components/site-header";
 
@@ -144,6 +141,10 @@ const footerLinks = [
   { label: "Para empresas", href: "#para-empresas" },
   { label: "Contato", href: "#contato" },
 ];
+
+const heroImage = "/images/hero-retreat.jpg";
+const natureImage = "/images/nature-calm.jpg";
+const spaceImage = "/images/retreat-space.jpg";
 
 function Index() {
   return (

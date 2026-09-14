@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
-import logoAsset from "@/assets/raiz-logo.jpeg.asset.json";
 
 const links = [
   { label: "Experiência", href: "#experiencia" },
@@ -31,7 +30,7 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 lg:px-10">
         <a href="#top" className="group inline-flex">
           <img
-            src={logoAsset.url}
+            src="/images/raiz-logo.jpeg"
             alt="RAIZ Corporate Offsites"
             className="h-9 w-auto object-contain"
           />
