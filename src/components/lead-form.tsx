@@ -1,9 +1,11 @@
 import { useState, type FormEvent } from "react";
 import { Check, Leaf } from "lucide-react";
 
+const RAIZ_API_URL = "https://resilient-bear-hinhlk-dev-ed.trailblaze.my.site.com/services/apexrest/leadCapture";
+
 /**
  * Estrutura dos campos alinhada a um futuro mapeamento de CRM (ex.: Salesforce Lead).
- * As chaves `crmField` documentam o destino previsto de cada campo.
+ * As chaves crmField documentam o destino previsto de cada campo.
  */
 type FieldConfig = {
   name: string;
@@ -112,7 +114,7 @@ export function LeadForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [sent, setSent] = useState(false);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const next: Record<string, string> = {};
@@ -131,12 +133,38 @@ export function LeadForm() {
     setErrors(next);
     if (Object.keys(next).length > 0) return;
 
-    // Payload pronto para envio futuro a um CRM (ex.: Salesforce).
-    const payload = Object.fromEntries(
-      fields.map((field) => [field.crmField, String(data.get(field.name) ?? "")]),
-    );
-    console.info("RAIZ lead (demonstração):", payload);
-    setSent(true);
+    const fullName = String(data.get("fullName") ?? "").trim();
+    const nameParts = fullName.split(/\s+/);
+    const firstName = nameParts.slice(0, -1).join(" ") || nameParts[0] || "";
+    const lastName = nameParts.length > 1 ? nameParts[nameParts.length - 1] : nameParts[0] || "";
+
+    try {
+      const response = await fetch(RAIZ_API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          first_name: firstName,
+          last_name: lastName,
+          company: String(data.get("company") ?? ""),
+          title: String(data.get("jobTitle") ?? ""),
+          email: String(data.get("email") ?? ""),
+          phone: String(data.get("phone") ?? ""),
+          NumberOfParticipants__c: String(data.get("participants") ?? ""),
+          RetreatGoal__c: String(data.get("goal") ?? ""),
+          ExpectedTimeframe__c: String(data.get("timing") ?? ""),
+          InvestmentRange__c: String(data.get("budget") ?? ""),
+        }),
+      });
+
+      const result = await response.json();
+      if (!response.ok || !result.success) {
+        throw new Error(result.error ?? "Falha ao enviar");
+      }
+      setSent(true);
+    } catch (error) {
+      console.error("Falha ao enviar lead para a Salesforce:", error);
+      setErrors({ fullName: "Não foi possível enviar. Tente novamente em instantes." });
+    }
   };
 
   if (sent) {
@@ -181,7 +209,8 @@ export function LeadForm() {
 
       <div className="mt-9 grid gap-5 sm:grid-cols-2">
         {fields.map((field) => (
-          <div key={field.name} className={field.full ? "sm:col-span-2" : undefined}>
+          <div key={field.name} className={field.full ? "sm:col-span-2" :
+undefined}>
             <label
               htmlFor={field.name}
               className="mb-2 block text-xs font-medium tracking-[0.08em] uppercase text-foreground/70"
@@ -229,7 +258,7 @@ export function LeadForm() {
         Quero conversar com a RAIZ
       </button>
       <p className="mt-5 text-xs text-muted-foreground">
-        Projeto demonstrativo — os dados enviados não são armazenados.
+        Projeto integrado com Salesforce (API REST Apex).
       </p>
     </form>
   );
